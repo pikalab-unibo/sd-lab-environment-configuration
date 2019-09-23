@@ -1,11 +1,11 @@
-\documentclass[handout]{beamer}\mode<presentation>{\usetheme{AMSCesenaBleu}}
+\documentclass[handout]{beamer}\mode<presentation>{\usetheme{AMSCesenaPurpleAndGold}}
 %\documentclass[presentation]{beamer}\mode<presentation>{\usetheme{AMSCesenaBleu}}
 %%%%
 
 \usepackage{common}
 \usepackage{courses}
 
-\title[Enviroment Setup Tutorial]{T0 -- Environment Setup Tutorial}
+\title[Enviroment Setup Tutorial]{L0 -- Environment Setup Tutorial}
 %
 \subtitle[SD]
 {Distributed Systems / Technologies\\\scriptsize Sistemi Distribuiti / Tecnologie}
@@ -17,7 +17,7 @@
 \institute[DISI, Univ. Bologna]
 {Dipartimento di Informatica -- Scienza e Ingegneria (DISI)\\\textsc{Alma Mater Studiorum} -- Universit{\`a} di Bologna a Cesena}
 %
-\date[A.Y. 2018/2019]{Academic Year 2018/2019}
+\date[A.Y. 2019/2020]{Academic Year 2019/2020}
 
 \setbeamercovered{transparent}
 
@@ -44,9 +44,9 @@
 \frametitle{Lecture goal}
 
     \begin{itemize}
-        \item In the general case it is \emph{mandatory} to \alert{use the Lab machines} when attending some Lab lesson, instead of your own laptops
-        \item This is \alert{necessary} since we cannot guarantee your laptop to be properly configured 
-        \item Furthermore, laptops connected to Alma-Wifi cannot directly communicate with Lab machines because of firewall rules we cannot change, thus limiting the impact of our exercises
+        \item In the general case we kindly suggest to \alert{use the Lab machines} when attending some Lab lesson, instead of your own laptops
+        \item This is \alert{preferred} since we cannot guarantee your laptop to be properly configured 
+        \item Furthermore, laptops connected to Alma-Wifi cannot directly communicate with Lab machines because of firewall rules we cannot change, thus potentially limiting the impact of our exercises
         \item Finally, we would like to avoid wasting time configuring it \emph{during} the lesson: that time is entirely needed to present the course contents
         \item Of course, we will be glad of helping you configuring your laptops \alert{before} or \alert{after} any lecture, or by means of the \alert{students' forum} 
     \end{itemize}
@@ -55,7 +55,7 @@
     
     \begin{itemize}
         \item In order for the Lab exercises to be reproducible on your laptops or home computers, you need to have a \alert{correctly configured environment}
-        \item You must also be able to perform some basic tasks such as discovering some machine IP address or, in general, using the console
+        \item You may also be asked to perform some basic tasks such as discovering some machine IP address or, in general, using the console
         \item This tutorial will help you configuring your computer 
         \item This tutorial will teach you some basic operations from the command line
         \item[!] Please consider reading these slides \alert{before} asking for help
@@ -66,30 +66,30 @@
     
 \end{frame}
 
-\section{Lab Machines}
+% \section{Lab Machines}
 
-\subsection{In case you are using a Lab machine}
+% \subsection{In case you are using a Lab machine}
 
-\begin{frame}
-\frametitle{In case you are using a Lab machine}
+% \begin{frame}
+% \frametitle{In case you are using a Lab machine}
     
-    \columsHH{
-        \begin{itemize}
-            \item[!] Lab machines \alert{must} be started up choosing the \alert{\texttt{Windows 10 - Hyperv ON (x Docker)}} operative system since we may need Docker from time to time
-        \end{itemize}
-    }{
-        \begin{center}
-             \includegraphics[width=\linewidth]{res/img/docker_so.jpg}
-        \end{center}
-    }
-    %
-    \begin{itemize}
-        \item In case you are not sure whether the machine is running the right OS, please restart it---possibly, before the lecture begins
+%     \columsHH{
+%         \begin{itemize}
+%             \item[!] Lab machines \alert{must} be started up choosing the \alert{\texttt{Windows 10 - Hyperv ON (x Docker)}} operative system since we may need Docker from time to time
+%         \end{itemize}
+%     }{
+%         \begin{center}
+%              \includegraphics[width=\linewidth]{res/img/docker_so.jpg}
+%         \end{center}
+%     }
+%     %
+%     \begin{itemize}
+%         \item In case you are not sure whether the machine is running the right OS, please restart it---possibly, before the lecture begins
 
-        \item In order to reduce the start up time, try keep using the same Lab machine among all Lab lectures
-    \end{itemize}
+%         \item In order to reduce the start up time, try keep using the same Lab machine among all Lab lectures
+%     \end{itemize}
     
-\end{frame}
+% \end{frame}
 
 \section{Ensuring your configuration is correct}
 
@@ -101,25 +101,25 @@
     \item A correct configuration comprehends the following software runtimes:
     %
     \begin{itemize}
-        \item \href{http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}{Java Development Kit (JDK) 8} 
-        \begin{itemize}
-            \item \alert{please avoid JDK versions $> 8$}
-        \end{itemize}
-        \item \href{https://www.docker.com/products/docker-desktop}{Docker Community Edition (CE) $\geq 17.0$}
-        \item \href{https://gradle.org/releases}{Gradle $\geq 4.0.0$}
-        \item \href{https://git-scm.com}{Git $\geq 2.15.0$}
+        \item \href{http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}{Java Development Kit (JDK) $\geq 8$} 
+        % \begin{itemize}
+        %     \item \alert{please avoid JDK versions $> 8$}
+        % \end{itemize}
+        % \item \href{https://www.docker.com/products/docker-desktop}{Docker Community Edition (CE) $\geq 17.0$}
+        \item \href{https://gradle.org/releases}{Gradle $\geq 5.0.0$}
+        \item \href{https://git-scm.com}{Git $\geq 2.17.0$}
     \end{itemize}
 
 	\item Ensure they are installed or install them if they are not
 	%
 	\begin{itemize}
 		\item Notice that Gradle required Java to be installed
-		\item Notice that, on Windows, Docker requires \alert{Hyper-V} to be enabled 
-		%
-		\begin{itemize}
-			\item Notice that Hyper-V is NOT supported by Windows 10 Home
-			\item Consider reading slide \ref{troubleshooting}
-		\end{itemize}
+% 		\item Notice that, on Windows, Docker requires \alert{Hyper-V} to be enabled 
+% 		%
+% 		\begin{itemize}
+% 			\item Notice that Hyper-V is NOT supported by Windows 10 Home
+% 			\item Consider reading slide \ref{troubleshooting}
+% 		\end{itemize}
 	\end{itemize}
     
     \framebreak
@@ -141,18 +141,18 @@
         
         \item[\$] \texttt{gradle --version}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{Gradle 4.X.Y}
+            \item[$\rightarrow$] \texttt{Gradle 5.X.Y}
             \item[] \ldots
         \end{itemize}
         
-        \item[\$] \texttt{docker --version}
-        \begin{itemize}
-            \item[$\rightarrow$] \texttt{Docker version 17.X.Y-ce, build ZZZ}
-        \end{itemize}
+        % \item[\$] \texttt{docker --version}
+        % \begin{itemize}
+        %     \item[$\rightarrow$] \texttt{Docker version 17.X.Y-ce, build ZZZ}
+        % \end{itemize}
         
         \item[\$] \texttt{git --version}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{git version 2.15.X.Y}
+            \item[$\rightarrow$] \texttt{git version 2.17.X.Y}
         \end{itemize}
     \end{itemize}
 	%
@@ -182,7 +182,7 @@
         \item[$>$] \texttt{echo \alert{\%}JAVA\_HOME\alert{\%} \& echo \alert{\%}GRADLE\_HOME\alert{\%}}
         \begin{itemize}
             \item[$\rightarrow$] \texttt{C:$\backslash$Program Files$\backslash$Java$\backslash$jdk\_1.8.X\_Y} \hint{your paths may}
-            \item[] \texttt{C:$\backslash$Program Files$\backslash$Gradle$\backslash$gradle-4.X.Y} \hint{be different}
+            \item[] \texttt{C:$\backslash$Program Files$\backslash$Gradle$\backslash$gradle-5.X.Y} \hint{be different}
         \end{itemize}
     \end{itemize}
     %
@@ -192,7 +192,7 @@
         \item[\$] \texttt{echo \alert{\$}JAVA\_HOME ; echo \alert{\$}GRADLE\_HOME}
         \begin{itemize}
             \item[$\rightarrow$] \texttt{/usr/lib/jvm/java-8-openjdk-amd64/}\hint{your paths may}
-            \item[] \texttt{/opt/gradle/gradle-4.X.Y}\hint{be different}
+            \item[] \texttt{/opt/gradle/gradle-5.X.Y}\hint{be different}
         \end{itemize}
     \end{itemize}
     %
@@ -254,84 +254,84 @@
     	\end{itemize}
     \end{itemize}
     
-    \framebreak
+%     \framebreak
     
-    \item Ensure, the Docker service/daemon is up and running
-    %
-    \begin{itemize}
-       	\item on Windows and Mac OS, this just means checking the Docker icon is present within the taskbar 
-		%
-		\columsHH{
-			\includegraphics[width=.9\linewidth]{./res/img/docker_icon_win.png}
+%     \item Ensure, the Docker service/daemon is up and running
+%     %
+%     \begin{itemize}
+%       	\item on Windows and Mac OS, this just means checking the Docker icon is present within the taskbar 
+% 		%
+% 		\columsHH{
+% 			\includegraphics[width=.9\linewidth]{./res/img/docker_icon_win.png}
 			
-		}{
-			\includegraphics[width=.9\linewidth]{./res/img/docker_icon_mac.png}
-		}
+% 		}{
+% 			\includegraphics[width=.9\linewidth]{./res/img/docker_icon_mac.png}
+% 		}
 	
-		\vspace{.3cm}
+% 		\vspace{.3cm}
 	
-		\item on Linux, you need to execute one of the following commands:
-		%
-		\begin{itemize}
-			\item[\$] \texttt{service docker status}
-			\item[] or
-			\item[\$] \texttt{systemctl status docker.service}
-		\end{itemize}
+% 		\item on Linux, you need to execute one of the following commands:
+% 		%
+% 		\begin{itemize}
+% 			\item[\$] \texttt{service docker status}
+% 			\item[] or
+% 			\item[\$] \texttt{systemctl status docker.service}
+% 		\end{itemize}
 		
-		\item in case the Docker service is NOT up and running, you can start it by running:
+% 		\item in case the Docker service is NOT up and running, you can start it by running:
 		
-		%
-		\begin{itemize}
-			\item[\$] \texttt{\alert{sudo} service docker start}
-			\item[] or
-			\item[\$] \texttt{\alert{sudo} systemctl start docker.service}
-		\end{itemize}
-	\end{itemize}
+% 		%
+% 		\begin{itemize}
+% 			\item[\$] \texttt{\alert{sudo} service docker start}
+% 			\item[] or
+% 			\item[\$] \texttt{\alert{sudo} systemctl start docker.service}
+% 		\end{itemize}
+% 	\end{itemize}
     
-    \framebreak
+%     \framebreak
     
-    \item Finally, you must check if Docker is currently logged in with your Docker Hub credentials
-    %
-    \begin{itemize}
-    	\item this requires you registered on \url{https://hub.docker.com/} as explained on slide \ref{configure-accounts}
-    \end{itemize}
-   	%
-    \vspace{.5cm}
-    %
-    For instance, you can do so by running the following console commands:
-    %
-    \begin{itemize}
-        \item[$>$] \texttt{docker login}
-        \begin{itemize}
-            \item If you get an output like the following one, then your Docker is already logged in. 
-            Press \alert{Ctrl+C} to stop the current login procedure.
+%     \item Finally, you must check if Docker is currently logged in with your Docker Hub credentials
+%     %
+%     \begin{itemize}
+%     	\item this requires you registered on \url{https://hub.docker.com/} as explained on slide \ref{configure-accounts}
+%     \end{itemize}
+%   	%
+%     \vspace{.5cm}
+%     %
+%     For instance, you can do so by running the following console commands:
+%     %
+%     \begin{itemize}
+%         \item[$>$] \texttt{docker login}
+%         \begin{itemize}
+%             \item If you get an output like the following one, then your Docker is already logged in. 
+%             Press \alert{Ctrl+C} to stop the current login procedure.
             
-            \vspace{.3cm}
+%             \vspace{.3cm}
             
-            \item[$\rightarrow$] \texttt{Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.}
-            \item[] \texttt{Username (\alert{your\_username}):}
+%             \item[$\rightarrow$] \texttt{Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.}
+%             \item[] \texttt{Username (\alert{your\_username}):}
             
-            \vspace{.3cm}
+%             \vspace{.3cm}
             
-            \item Otherwise, if no \texttt{(\alert{your\_username})} part is readable or if the prompted username is not yours, go on typing your Docker ID \& password
-        \end{itemize}
-    \end{itemize}
-    %
-    \framebreak
-    %
-    Example:
-    %
-    \vspace{.3cm}
-    %
-    \columsHH{
-        \includegraphics[width=\linewidth]{res/img/docker_logged.png}
+%             \item Otherwise, if no \texttt{(\alert{your\_username})} part is readable or if the prompted username is not yours, go on typing your Docker ID \& password
+%         \end{itemize}
+%     \end{itemize}
+%     %
+%     \framebreak
+%     %
+%     Example:
+%     %
+%     \vspace{.3cm}
+%     %
+%     \columsHH{
+%         \includegraphics[width=\linewidth]{res/img/docker_logged.png}
         
-        Logged
-    }{
-        \includegraphics[width=\linewidth]{res/img/docker_unlogged.png}
+%         Logged
+%     }{
+%         \includegraphics[width=\linewidth]{res/img/docker_unlogged.png}
         
-        Not logged
-    }
+%         Not logged
+%     }
 	\end{enumerate}
 
 \end{frame}
@@ -346,9 +346,9 @@
     \begin{enumerate}
         \item Be enrolled into the course e-learning web-page
         \begin{itemize}
-            \item \url{https://iol.unibo.it/enrol/index.php?id=23794}
+            \item \url{https://iol.unibo.it/course/view.php?id=41781}
             \item you should be already enrolled because of your courses plan
-            \item if you are not, you can enroll providing the key \alert{\texttt{1819SD}}
+            \item if you are not, you can enroll providing the key \alert{\texttt{1920SD}}
         \end{itemize}
         
         \item Register a GitLab account using your \alert{\texttt{x.yN@studio.unibo.it}} email address
@@ -357,16 +357,16 @@
             \item please use \texttt{x.yN} as username, if possible
         \end{itemize}
         
-        \item Register a Docker Hub account using your \alert{\texttt{x.yN@studio.unibo.it}} email address
-        \begin{itemize}
-            \item \url{https://hub.docker.com/}
-            \item please use \texttt{xyN} as Docker ID, if possible
-        \end{itemize}
+        % \item Register a Docker Hub account using your \alert{\texttt{x.yN@studio.unibo.it}} email address
+        % \begin{itemize}
+        %     \item \url{https://hub.docker.com/}
+        %     \item please use \texttt{xyN} as Docker ID, if possible
+        % \end{itemize}
         
-        \item Request access on the Distributed Systems GitLab group for the A.Y. 2018/2019:
+        \item Request access on the Distributed Systems GitLab group for the A.Y. 2019/2020:
         %
         \begin{itemize}
-            \item \url{https://gitlab.com/das-lab/courses/ds/aa1819}
+            \item \url{https://gitlab.com/das-lab/courses/ds/aa1920}
         \end{itemize}
         
     \end{enumerate}
@@ -391,6 +391,8 @@
         \end{itemize}
         
         \item \textbf{Start Eclipse and choose \texttt{\alert{my-dir}} as the workspace directory}
+        
+        \item If the cloned repository contains a Gradle project, skip to slide \ref{import-gradle-project}
         
         \item Import the existing project into the workspace, if possible:
         %
@@ -419,6 +421,39 @@
     \end{enumerate}
 \end{frame}
 
+\subsection{Importing your (Gralde) project in Eclipse}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Importing your (Gralde) project in Eclipse}
+\label{import-gradle-project}
+
+    Suppose you want to import your local Gradle project (whose main directory is \texttt{/path/to/\alert{my-dir}/gradle-project}/) in Eclipse:
+    
+    \begin{enumerate}
+        \item Ensure the value of the  \texttt{rootProject.name} property in \texttt{gradle-project/\alert{settings.gradle}} is equals to the name of the project's main directory (i.e., \texttt{gradle-project} in this example)
+        
+        \item \textbf{Start Eclipse and choose \texttt{\alert{my-dir}} as the workspace directory}
+        
+        \item Import the existing project into the workspace, if possible:
+        %
+        \begin{enumerate}
+            \item Click on \texttt{File} a menu should appear
+            \item Click on \texttt{Import...} a dialog window should appear
+            \item From that dialog, open the \texttt{Gradle} folder
+            \item Select the \texttt{Existing Gradle Project} and click on \texttt{Next}
+            \item Specify \texttt{gradle-project} as project name and \texttt{/path/to/my-dir/gradle-project} as project location, then click on \texttt{Next}
+            \item Activate the \texttt{Override workspace settings} check-box and ensure the \texttt{Gradle wrapper} combo-box is selected, then click on \texttt{Next}
+            \item Click on \texttt{Finish}
+            %
+            \begin{itemize}
+                \item If nothing happens call for help
+            \end{itemize}
+        \end{enumerate}
+        
+    \end{enumerate}
+    
+\end{frame}
+
 \subsection{Submitting your weekly exercise}
 
 \begin{frame}%[allowframebreaks]
@@ -426,23 +461,24 @@
 
     \begin{itemize}
 
-        \item Sometimes, you will be asked to solve some exercises
+        \item Sometimes, you may be invited to solve some exercises
         
-        \item You will usually clone them from a GitLab repository and \alert{submit your solutions to the same repository}
+        \item In such cases, you will usually clone them from a GitLab repository
         \begin{itemize}
-            \item So please request access here: \url{https://gitlab.com/das-lab/courses/ds/aa1819} in order to get the right to push your commits
+            \item So please request access here: \url{https://gitlab.com/das-lab/courses/ds/aa1920} in order to get the right to push your commits
         \end{itemize}
         
-        \item Your will be required to push your solution on the following \alert{branch}:
+        \item If you are asked to solve some exercises and you want to receive some feedback, you can submit your code  the following \alert{branch}:
         \begin{itemize}
-            \item \texttt{submissions/\alert{\textit{name.surnameN}}}, in case you are submitting on time
-            \item \texttt{late-submissions/\alert{\textit{name.surnameN}}}, otherwise
+            
+            \item \texttt{submissions/\alert{\textit{name.surnameN}}}%, in case you are submitting on time
+            % \item \texttt{late-submissions/\alert{\textit{name.surnameN}}}, otherwise
             
             \vspace{.3cm}
         
-            \item[!] The definition of ``on time'' may vary but it usually means ``before the next Lab lecture''
+            % \item[!] The definition of ``on time'' may vary but it usually means ``before the next Lab lecture''
             
-            \item[!] Of course, your push right on the \texttt{submissions/*} branches will eventually be deactivated
+            % \item[!] Of course, your push right on the \texttt{submissions/*} branches will eventually be deactivated
             
             \vspace{.3cm}
             
@@ -460,7 +496,7 @@
         \item Clone the exercise repository
         %
         \begin{itemize}
-            \item[\$] \texttt{git clone https://gitlab.com/das-lab/courses/ds/aa1819/\alert{\textit{exericse\_name}}}
+            \item[\$] \texttt{git clone https://gitlab.com/das-lab/courses/ds/aa1920/\alert{\textit{exericse\_name}}}
         \end{itemize}
         
         \item Jump into the project directory
@@ -496,21 +532,21 @@
             \end{itemize}
         \end{enumerate}
         
-        \item In case your push fails, you may be out of time. You can create a \texttt{late-submissions/*} branch by running:
-        %
-        \begin{itemize}
-            \item[\$] \texttt{git checkout -b late-submissions/\textit{\alert{name.surnameN}}}
+        % \item In case your push fails, you may be out of time. You can create a \texttt{late-submissions/*} branch by running:
+        % %
+        % \begin{itemize}
+        %     \item[\$] \texttt{git checkout -b late-submissions/\textit{\alert{name.surnameN}}}
             
-            \vspace{.3cm}
+        %     \vspace{.3cm}
             
-            \item And, again, you can push on the \texttt{late-submissions/\textit{\alert{name.surnameN}}} branch by running:
-            %
-            \begin{itemize}
-                \item[\$] \texttt{git \alert{push}}
-            \end{itemize}
-        \end{itemize}
+        %     \item And, again, you can push on the \texttt{late-submissions/\textit{\alert{name.surnameN}}} branch by running:
+        %     %
+        %     \begin{itemize}
+        %         \item[\$] \texttt{git \alert{push}}
+        %     \end{itemize}
+        % \end{itemize}
         
-        \item If your push fails, and you are on time, quickly contact the tutor by means of the forum
+        % \item If your push fails, and you are on time, quickly contact the tutor by means of the forum
             
     \end{enumerate}
 
@@ -575,16 +611,16 @@
 		
 		\item \href{https://docs.gradle.org/current/userguide/installation.html\#installing_manually}{How to install Gradle on Windows, Mac OS, or Linux}
 		
-		\item How to install Docker...
-		%
-		\begin{itemize}
-			\item \ldots{} \href{https://docs.docker.com/docker-for-mac/install/}{on Mac OS} or \href{https://docs.docker.com/docker-for-windows/install/}{on Windows}
-			\item \ldots{} on Linux \href{https://docs.docker.com/install/linux/docker-ce/centos/}{CentOS}, \href{https://docs.docker.com/install/linux/docker-ce/debian/}{Debian}, \href{https://docs.docker.com/install/linux/docker-ce/fedora/}{Fedora}, \href{https://docs.docker.com/install/linux/docker-ce/ubuntu/}{Ubuntu}, or \href{https://docs.docker.com/install/linux/docker-ce/binaries/}{other distributions}
-			%
-			\begin{itemize}
-				\item \href{https://docs.docker.com/install/linux/linux-postinstall/}{Some further configuration steps for Linux}
-			\end{itemize}
-		\end{itemize}
+% 		\item How to install Docker...
+% 		%
+% 		\begin{itemize}
+% 			\item \ldots{} \href{https://docs.docker.com/docker-for-mac/install/}{on Mac OS} or \href{https://docs.docker.com/docker-for-windows/install/}{on Windows}
+% 			\item \ldots{} on Linux \href{https://docs.docker.com/install/linux/docker-ce/centos/}{CentOS}, \href{https://docs.docker.com/install/linux/docker-ce/debian/}{Debian}, \href{https://docs.docker.com/install/linux/docker-ce/fedora/}{Fedora}, \href{https://docs.docker.com/install/linux/docker-ce/ubuntu/}{Ubuntu}, or \href{https://docs.docker.com/install/linux/docker-ce/binaries/}{other distributions}
+% 			%
+% 			\begin{itemize}
+% 				\item \href{https://docs.docker.com/install/linux/linux-postinstall/}{Some further configuration steps for Linux}
+% 			\end{itemize}
+% 		\end{itemize}
 		
 		\item	 \href{https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html}{Hot to set the \texttt{JAVA\_HOME} environment variable on Windows}
 		%
@@ -598,7 +634,7 @@
 			\item Instructions for Mac OS are ok for Linux too
 		\end{itemize}
 	
-		\item \href{https://docs.microsoft.com/it-it/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v}{How to enable Hyper-V on Windows}
+% 		\item \href{https://docs.microsoft.com/it-it/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v}{How to enable Hyper-V on Windows}
 	
 		\item \href{https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration}{How to set up Git properties}
 	\end{itemize}
