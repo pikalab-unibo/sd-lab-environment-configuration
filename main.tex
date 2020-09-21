@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_GB
 \documentclass[handout]{beamer}\mode<presentation>{\usetheme{AMSCesenaPurpleAndGold}}
 %\documentclass[presentation]{beamer}\mode<presentation>{\usetheme{AMSCesenaBleu}}
 %%%%
@@ -5,7 +6,7 @@
 \usepackage{common}
 \usepackage{courses}
 
-\title[L0 -- Enviroment Setup Tutorial]{Environment Setup Tutorial}
+\title{Environment Setup Tutorial}
 %
 \subtitle[SD]
 {Distributed Systems / Technologies\\\scriptsize Sistemi Distribuiti / Tecnologie}
@@ -17,7 +18,7 @@
 \institute[DISI, Univ. Bologna]
 {Dipartimento di Informatica -- Scienza e Ingegneria (DISI)\\\textsc{Alma Mater Studiorum} -- Universit{\`a} di Bologna a Cesena}
 %
-\date[A.Y. 2019/2020]{Academic Year 2019/2020}
+\date[A.Y. 2020/2021]{Academic Year 2020/2021}
 
 \setbeamercovered{transparent}
 
@@ -38,13 +39,13 @@
 	\tableofcontents[sectionstyle=show/show, subsectionstyle=show/show, subsubsectionstyle=hide/hide]
 \end{frame}
 
-\section{Lecture Goal}
+\section{General Recommendations}
 
 \begin{frame}[allowframebreaks]
-\frametitle{Lecture Goal}
+\frametitle{General Recommendations}
 
     \begin{itemize}
-        \item in the general case we kindly suggest to \alert{use the Lab machines} when attending some Lab lesson, instead of your own laptops
+        \item in the general case we kindly suggest to \alert{use the Lab machines} when attending some Lab lesson \alert{in presence}, instead of your own laptops
         \item this is \alert{preferred} since we cannot guarantee your laptop to be properly configured 
         \item furthermore, laptops connected to ALMAWIFI cannot directly communicate with Lab machines because of firewall rules we cannot change, thus potentially limiting the impact of our exercises
         \item finally, we would like to avoid wasting time configuring it \emph{during} the lesson: that time is entirely needed to present the course contents
@@ -76,13 +77,13 @@
     \item a correct configuration includes the following software runtimes:
     %
     \begin{itemize}
-        \item \href{http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}{Java Development Kit (JDK) $\geq 8$} 
-        % \begin{itemize}
-        %     \item \alert{please avoid JDK versions $> 8$}
-        % \end{itemize}
-        % \item \href{https://www.docker.com/products/docker-desktop}{Docker Community Edition (CE) $\geq 17.0$}
-        \item \href{https://gradle.org/releases}{Gradle $\geq 5.0.0$}
-        \item \href{https://git-scm.com}{Git $\geq 2.17.0$}
+        \item \href{https://www.oracle.com/java/technologies/javase-jdk15-downloads.html}{Java Development Kit (JDK) $\geq 10$} 
+		\begin{itemize}
+			\item \alert{please avoid JDK versions $< 10$}
+		\end{itemize}
+        \item \href{https://gradle.org/releases}{Gradle $\geq 6.5.0$}
+        \item \href{https://git-scm.com}{Git $\geq 2.25.0$}
+    	\item \emph{(optional)} \href{https://www.docker.com/products/docker-desktop}{Docker Community Edition (CE) $\geq 19.0.0$}
     \end{itemize}
 
 	\item ensure they are installed or install them if they are not
@@ -98,19 +99,19 @@
     \begin{itemize}
         \item[\$] \texttt{java -version}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{java version "1.8.X\_Y"}
-            \item[] \texttt{Java(TM) SE Runtime Environment (build 1.8.X\_Y)}
-            \item[] \texttt{Java HotSpot(TM) 64-Bit Server VM ZZZ}
+            \item[$\rightarrow$] \texttt{openjdk 15 2020-09-15}
+            \item[] \texttt{OpenJDK Runtime Environment (build 15+36-1562)}
+            \item[] \texttt{OpenJDK 64-Bit Server VM (build 15+36-1562, mixed mode, sharing)}
         \end{itemize}
         
         \item[\$] \texttt{javac -version}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{javac 1.8.X\_Y}
+            \item[$\rightarrow$] \texttt{javac 15}
         \end{itemize}
         
         \item[\$] \texttt{gradle --version}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{Gradle 5.X.Y}
+            \item[$\rightarrow$] \texttt{Gradle 6.X.Y}
             \item[] \ldots
         \end{itemize}
         
@@ -121,7 +122,7 @@
         
         \item[\$] \texttt{git --version}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{git version 2.17.X.Y}
+            \item[$\rightarrow$] \texttt{git version 2.25.X.Y}
         \end{itemize}
     \end{itemize}
 	%
@@ -150,8 +151,8 @@
     \begin{itemize}
         \item[$>$] \texttt{echo \alert{\%}JAVA\_HOME\alert{\%} \& echo \alert{\%}GRADLE\_HOME\alert{\%}}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{C:$\backslash$Program Files$\backslash$Java$\backslash$jdk\_1.8.X\_Y} \hint{your paths may}
-            \item[] \texttt{C:$\backslash$Program Files$\backslash$Gradle$\backslash$gradle-5.X.Y} \hint{be different}
+            \item[$\rightarrow$] \texttt{C:$\backslash$Program Files$\backslash$Java$\backslash$jdk\_15.X\_Y} \hint{your paths may}
+            \item[] \texttt{C:$\backslash$Program Files$\backslash$Gradle$\backslash$gradle-6.X.Y} \hint{be different}
         \end{itemize}
     \end{itemize}
     %
@@ -160,8 +161,8 @@
     \begin{itemize}
         \item[\$] \texttt{echo \alert{\$}JAVA\_HOME ; echo \alert{\$}GRADLE\_HOME}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{/usr/lib/jvm/java-8-openjdk-amd64/}\hint{your paths may}
-            \item[] \texttt{/opt/gradle/gradle-5.X.Y}\hint{be different}
+            \item[$\rightarrow$] \texttt{/usr/lib/jvm/java-15-openjdk-amd64/}\hint{your paths may}
+            \item[] \texttt{/opt/gradle/gradle-6.X.Y}\hint{be different}
         \end{itemize}
     \end{itemize}
     %
@@ -237,9 +238,9 @@
     \begin{enumerate}
         \item be enrolled into the course e-learning web-page
         \begin{itemize}
-            \item \url{https://iol.unibo.it/course/view.php?id=41781}
+            \item \url{https://virtuale.unibo.it/course/view.php?id=18643}
             \item you should be already enrolled because of your courses plan
-            \item if you are not, you can enroll providing the key \alert{\texttt{1920SD}}
+            \item if you are not, you can enroll providing the key \alert{\texttt{2021SD}}
         \end{itemize}
         
         \item register a GitLab account using your \alert{\texttt{x.yN@studio.unibo.it}} email address
@@ -248,16 +249,16 @@
             \item please use \texttt{x.yN} as username, if possible
         \end{itemize}
         
-        % \item Register a Docker Hub account using your \alert{\texttt{x.yN@studio.unibo.it}} email address
-        % \begin{itemize}
-        %     \item \url{https://hub.docker.com/}
-        %     \item please use \texttt{xyN} as Docker ID, if possible
-        % \end{itemize}
+		\item register a Docker Hub account using your \alert{\texttt{x.yN@studio.unibo.it}} email address
+		\begin{itemize}
+			\item \url{https://hub.docker.com/}
+			\item please use \texttt{xyN} as Docker ID, if possible
+		\end{itemize}
         
-        \item request access on the Distributed Systems GitLab group for the A.Y. 2019/2020:
+        \item request access on the Distributed Systems GitLab group for the A.Y. 2020/2021:
         %
         \begin{itemize}
-            \item \url{https://gitlab.com/das-lab/courses/ds/aa1920}
+            \item \url{https://gitlab.com/pika-lab/courses/ds/ay2021}
         \end{itemize}
         
     \end{enumerate}
@@ -352,14 +353,17 @@
 
     \begin{itemize}
 
-        \item sometimes, you may be invited to solve some exercises
+        \item sometimes, you may be asked to submit some exercises
         
         \item in such cases, you will usually clone them from a GitLab repository
+        %
         \begin{itemize}
-            \item so please request access here: \url{https://gitlab.com/das-lab/courses/ds/aa1920} in order to get the right to push your commits
+            \item so please \textbf{request access} here: \url{https://gitlab.com/das-lab/courses/ds/ay2021} in order to get the right to push your commits
         \end{itemize}
         
-        \item if you are asked to solve some exercises and you want to receive some feedback, you can submit your code  the following \alert{branch}:
+        \item if you are asked to submit your solution to a given exercise, you can only do so by \alert{pushing} your code on a particular branch of the GitLab repository of that exercise
+        
+        \item the branch must be named as follows:
         \begin{itemize}
             
             \item \texttt{submissions/\alert{\textit{name.surnameN}}}%, in case you are submitting on time
@@ -498,13 +502,13 @@
 			\item instructions for Mac OS are ok for Linux too
 		\end{itemize}
 	
-% 		\item \href{https://docs.microsoft.com/it-it/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v}{How to enable Hyper-V on Windows}
+ 		\item \href{https://docs.microsoft.com/it-it/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v}{How to enable Hyper-V on Windows}
 	
 		\item \href{https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration}{How to set up Git properties}
 	\end{itemize}
 
 	\begin{block}{}
-		In case of troubles, you can post on the \href{https://iol.unibo.it/mod/forum/view.php?id=123707}{Students' Forum} \alert{describing your issues}, your computer's features, and the steps you already performed :)
+		In case of troubles, you can post on the \href{https://virtuale.unibo.it/mod/forum/view.php?id=331530}{Students' Forum} \alert{describing your issues}, your computer's features, and the steps you already performed :)
 	\end{block}
 
 \end{frame}
@@ -523,7 +527,7 @@
 	
 		\vspace{.3cm}
 	
-		\item for other sorts of troubles, please create a post on the \href{https://iol.unibo.it/mod/forum/view.php?id=123707}{Students' Forum}
+		\item for other sorts of troubles, please create a post on the \href{https://virtuale.unibo.it/mod/forum/view.php?id=331530}{Students' Forum}
 		
 	\end{itemize}
 \end{frame}
