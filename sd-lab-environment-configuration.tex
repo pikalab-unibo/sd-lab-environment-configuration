@@ -77,9 +77,10 @@
     \item a correct configuration includes the following software runtimes:
     %
     \begin{itemize}
-        \item \href{https://www.oracle.com/java/technologies/javase-jdk15-downloads.html}{Java Development Kit (JDK) $\geq 10$} 
+        \item \href{https://www.oracle.com/java/technologies/javase-jdk14-downloads.html}{Java Development Kit (JDK) $\geq 10$} 
 		\begin{itemize}
 			\item \alert{please avoid JDK versions $< 10$}
+			\item \alert{notice that JDK versions $\geq 15$ are not compatible with Gradle $\leq 6.6.1$}
 		\end{itemize}
         \item \href{https://gradle.org/releases}{Gradle $\geq 6.5.0$}
         \item \href{https://git-scm.com}{Git $\geq 2.25.0$}
@@ -99,14 +100,14 @@
     \begin{itemize}
         \item[\$] \texttt{java -version}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{openjdk 15 2020-09-15}
-            \item[] \texttt{OpenJDK Runtime Environment (build 15+36-1562)}
-            \item[] \texttt{OpenJDK 64-Bit Server VM (build 15+36-1562, mixed mode, sharing)}
+            \item[$\rightarrow$] \texttt{openjdk 14.X.Y}
+            \item[] \texttt{OpenJDK Runtime Environment (build 14+ZZZZ)}
+            \item[] \texttt{OpenJDK WW-Bit Server VM (build 14+ZZZZ, mixed mode, sharing)}
         \end{itemize}
         
         \item[\$] \texttt{javac -version}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{javac 15}
+            \item[$\rightarrow$] \texttt{javac 14.X.Y}
         \end{itemize}
         
         \item[\$] \texttt{gradle --version}
@@ -151,7 +152,7 @@
     \begin{itemize}
         \item[$>$] \texttt{echo \alert{\%}JAVA\_HOME\alert{\%} \& echo \alert{\%}GRADLE\_HOME\alert{\%}}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{C:$\backslash$Program Files$\backslash$Java$\backslash$jdk\_15.X\_Y} \hint{your paths may}
+            \item[$\rightarrow$] \texttt{C:$\backslash$Program Files$\backslash$Java$\backslash$jdk\_14.X\_Y} \hint{your paths may}
             \item[] \texttt{C:$\backslash$Program Files$\backslash$Gradle$\backslash$gradle-6.X.Y} \hint{be different}
         \end{itemize}
     \end{itemize}
@@ -161,7 +162,7 @@
     \begin{itemize}
         \item[\$] \texttt{echo \alert{\$}JAVA\_HOME ; echo \alert{\$}GRADLE\_HOME}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{/usr/lib/jvm/java-15-openjdk-amd64/}\hint{your paths may}
+            \item[$\rightarrow$] \texttt{/usr/lib/jvm/java-14.X.Y-openjdk-amd64/}\hint{your paths may}
             \item[] \texttt{/opt/gradle/gradle-6.X.Y}\hint{be different}
         \end{itemize}
     \end{itemize}
