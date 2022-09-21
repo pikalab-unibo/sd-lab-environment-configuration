@@ -1,41 +1,39 @@
 % !TeX spellcheck = en_GB
-\documentclass[handout]{beamer}\mode<presentation>{\usetheme{AMSBolognaFC}}
-%%%%
-
-\usepackage{common}
-\usepackage{courses}
-
-\title{Environment Setup Tutorial}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SD Lab -- Environment Configuration
+% Giovanni Ciatto
+% Alma Mater Studiorum - Università di Bologna
+% mailto:giovanni.ciatto@unibo.it
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[handout]{beamer}\mode<handout>{\usetheme{default}}
 %
-\subtitle[SD]
-{Distributed Systems / Technologies\\\scriptsize Sistemi Distribuiti / Tecnologie}
-%
-\author[Ciatto \and Omicini]
-{\alert{Giovanni Ciatto} \and Andrea Omicini\\
-\texttt{giovanni.ciatto@unibo.it \and andrea.omicini@unibo.it}}
-%
-\institute[DISI, Univ. Bologna]
-{Dipartimento di Informatica -- Scienza e Ingegneria (DISI)\\\textsc{Alma Mater Studiorum} -- Universit{\`a} di Bologna a Cesena}
-%
-\date[A.Y. 2021/2022]{Academic Year 2021/2022}
-
-\setbeamercovered{transparent}
-
-\AtBeginSection[]
-{
-	\begin{frame}[c]\frametitle{Next in Line\ldots}
-	%		\begin{multicols}{2}
-			\tableofcontents[sectionstyle=show/shaded, subsectionstyle=show/hide, subsubsectionstyle=hide/hide]
-	%		\end{multicols}
-	\end{frame}
+\documentclass[presentation]{beamer}\mode<presentation>{\usetheme{AMSBolognaFC}}
+%\documentclass[handout]{beamer}\mode<handout>{\usetheme{AMSBolognaFC}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{sd-lab-common}
+\usepackage{sd-lab-environment-configuration}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[\currentLab{} -- Env. Config.]{
+    Environment Configuration
 }
-
+%
+\subtitle{\courseName{} (\courseAcronym) / Module \moduleN{}}
+%
+\author[\sspeaker{\gcShort} \& \mmShort]{
+    \speaker{\gcFull} \and \mmFull
+    \\ 
+    \gcEmail \and \mmEmail
+}
+%
+\institute[\disiShort, \uniboShort]{\disi{} (\disiShort)\\\unibo}
+%
+\date[A.Y. \academicYear{}]{Academic Year \academicYear{}}
 \begin{document}
 
 \maketitle
 
 \begin{frame}[c]\frametitle{Outline}
-	\tableofcontents[sectionstyle=show/show, subsectionstyle=show/show, subsubsectionstyle=hide/hide]
+    \tableofcontents[sectionstyle=show/show, subsectionstyle=show/show, subsubsectionstyle=hide/hide]
 \end{frame}
 
 \section{General Recommendations}
@@ -71,26 +69,26 @@
 \begin{frame}[c,allowframebreaks]
 \frametitle{Your Configuration is Correct}
 
-	\begin{enumerate}
+    \begin{enumerate}
 
     \item a correct configuration includes the following software runtimes:
     %
     \begin{itemize}
         \item \href{https://www.oracle.com/java/technologies/downloads/}{Java Development Kit (JDK) $\geq 11$}
-		\begin{itemize}
-			\item \alert{please avoid JDK versions $< 11$}
+        \begin{itemize}
+            \item \alert{please avoid JDK versions $< 11$}
 %			\item \alert{notice that JDK versions $\geq 15$ are not compatible with Gradle $\leq 6.6.1$}
-		\end{itemize}
+        \end{itemize}
         \item \href{https://gradle.org/releases}{Gradle $\geq 7.0$}
         \item \href{https://git-scm.com}{Git $\geq 2.25.0$}
-    	\item \emph{(optional)} \href{https://www.docker.com/products/docker-desktop}{Docker Community Edition (CE) $\geq 20.0.0$}
+        \item \emph{(optional)} \href{https://www.docker.com/products/docker-desktop}{Docker Community Edition (CE) $\geq 20.0.0$}
     \end{itemize}
 
-	\item ensure they are installed or install them if they are not
-	%
-	\begin{itemize}
-		\item please notice that Gradle required Java to be installed
-	\end{itemize}
+    \item ensure they are installed or install them if they are not
+    %
+    \begin{itemize}
+        \item please notice that Gradle required Java to be installed
+    \end{itemize}
 
     \framebreak
 
@@ -125,13 +123,13 @@
             \item[$\rightarrow$] \texttt{git version 2.25.X.Y}
         \end{itemize}
     \end{itemize}
-	%
-	\framebreak
+    %
+    \framebreak
     %
     For instance, on Windows:
     %
     \begin{center}
-        \includegraphics[width=.4\linewidth]{img/console_versions.png}
+        \includegraphics[width=.4\linewidth]{figures/console_versions.png}
     \end{center}
     %
     \alert{If you get any trouble}, ensure the aforementioned software is correctly installed AND the following environment variables are properly set.
@@ -141,7 +139,7 @@
     \item you must ensure the \texttt{JAVA\_HOME} and \texttt{GRADLE\_HOME} environment variables are properly set
     %
     \begin{itemize}
-    	\item they should respectively point to the paths where \texttt{JDK} and Gradle are installed
+        \item they should respectively point to the paths where \texttt{JDK} and Gradle are installed
     \end{itemize}
 
     \vspace{.5cm}
@@ -171,11 +169,11 @@
    \framebreak
 
    \item then, you must ensure your \texttt{PATH} environment variable contains the paths  where the aforementioned runtimes are installed into.
-	%
-	\begin{itemize}
-		\item[!] if you succeeded with the previous steps, this should be ok, but please double check :)
-	\end{itemize}
-	%
+    %
+    \begin{itemize}
+        \item[!] if you succeeded with the previous steps, this should be ok, but please double check :)
+    \end{itemize}
+    %
     \vspace{.5cm}
     %
     For instance, you can check it by running the following console commands:
@@ -203,28 +201,28 @@
     \item ensure your local Git properties \alert{\texttt{user.name}} and \alert{\texttt{user.email}} are properly set by running the following commands:
     %
     \begin{itemize}
-    	\item[\$] \texttt{git config --global --get user.\alert{name}}
-    	%
-    	\begin{itemize}
-    		\item[$\rightarrow$] \texttt{\textit{<your name>}}
-    	\end{itemize}
+        \item[\$] \texttt{git config --global --get user.\alert{name}}
+        %
+        \begin{itemize}
+            \item[$\rightarrow$] \texttt{\textit{<your name>}}
+        \end{itemize}
 
-    	\item[\$] \texttt{git config --global --get user.\alert{email}}
-    	%
-    	\begin{itemize}
-    		\item[$\rightarrow$] \texttt{\textit{<name>}.\textit{<surname>}[\textit{<number>}]@\alert{studio.unibo.it}}
-    	\end{itemize}
+        \item[\$] \texttt{git config --global --get user.\alert{email}}
+        %
+        \begin{itemize}
+            \item[$\rightarrow$] \texttt{\textit{<name>}.\textit{<surname>}[\textit{<number>}]@\alert{studio.unibo.it}}
+        \end{itemize}
 
-    	\vspace{.5cm}
+        \vspace{.5cm}
 
-    	\item In case they are not, you can set them by means of the following command
-    	%
-    	\begin{itemize}
-    		\item[\$] \texttt{git config --global \texttt{\textit{<property\_name>}} \alert{"}\texttt{\textit{<value>}}\alert{"}}
-    	\end{itemize}
+        \item In case they are not, you can set them by means of the following command
+        %
+        \begin{itemize}
+            \item[\$] \texttt{git config --global \texttt{\textit{<property\_name>}} \alert{"}\texttt{\textit{<value>}}\alert{"}}
+        \end{itemize}
     \end{itemize}
 
-	\end{enumerate}
+    \end{enumerate}
 
 \end{frame}
 
@@ -249,11 +247,11 @@
             \item please use \texttt{x.yN} as username, if possible
         \end{itemize}
 
-		\item register a Docker Hub account using your \alert{\texttt{x.yN@studio.unibo.it}} email address
-		\begin{itemize}
-			\item \url{https://hub.docker.com/}
-			\item please use \texttt{xyN} as Docker ID, if possible
-		\end{itemize}
+        \item register a Docker Hub account using your \alert{\texttt{x.yN@studio.unibo.it}} email address
+        \begin{itemize}
+            \item \url{https://hub.docker.com/}
+            \item please use \texttt{xyN} as Docker ID, if possible
+        \end{itemize}
 
         \item request access on the Distributed Systems GitLab group for the A.Y. 2021/2022:
         %
@@ -437,45 +435,49 @@
 \frametitle{Discovering Your Machine IP Address(es)}
 
 
-	In several scenarios you may be required to discover your machine current IP address
-	%
-	\columnsHHt{
-		\begin{itemize}
-		    \item on Windows, you can do it by prompting:
-		    %
-		    \begin{itemize}
-		        \item[$>$] \texttt{ipconfig}
-		    \end{itemize}
-		\end{itemize}
-		%
-		\begin{center}
-			\includegraphics[width=.9\linewidth]{img/ipconfig.png}
-		\end{center}
-	}{%\framebreak
-    \begin{itemize}
-	    \item whereas, on Unix, you can do it by prompting:
-	    %
-	    \begin{itemize}
-	        \item[\$] \texttt{ifconfig}
-	    \end{itemize}
-	\end{itemize}
-	%
-	\begin{center}
-		\includegraphics[width=.9\linewidth]{img/ifconfig.png}
-	\end{center}
-	}
+    In several scenarios you may be required to discover your machine current IP address
+    %
+    \begin{columns}
+    \column{0.48\textwidth}
+
+        \begin{itemize}
+            \item on Windows, you can do it by prompting:
+            %
+            \begin{itemize}
+                \item[$>$] \texttt{ipconfig}
+            \end{itemize}
+        \end{itemize}
+        %
+        \begin{center}
+            \includegraphics[width=.9\linewidth]{figures/ipconfig.png}
+        \end{center}
+
+    \column{0.48\textwidth}
+
+        \begin{itemize}
+            \item whereas, on Unix, you can do it by prompting:
+            %
+            \begin{itemize}
+                \item[\$] \texttt{ifconfig}
+            \end{itemize}
+        \end{itemize}
+        %
+        \begin{center}
+            \includegraphics[width=.9\linewidth]{figures/ifconfig.png}
+        \end{center}
+    \end{columns}
 
     \framebreak
     \begin{itemize}
-    \item keep in mind that:
-    %
-    \begin{itemize}
-    	\item IP addresses are often dynamically assigned by means of DHCP, so \alert{do not expect} you machine to always be assigned with the same IP address
-    	\item IP addresses are usually NATted, thus they are not accessible from the Internet
-    	\item UniBo's IP addresses are \emph{usually} in the \texttt{137.204.xx.xx} form
-    	\item Docker \emph{usually} assign IPs to containers in from the \texttt{172.xx.xx.xx} range
+        \item keep in mind that:
+        %
+        \begin{itemize}
+            \item IP addresses are often dynamically assigned by means of DHCP, so \alert{do not expect} you machine to always be assigned with the same IP address
+            \item IP addresses are usually NATted, thus they are not accessible from the Internet
+            \item UniBo's IP addresses are \emph{usually} in the \texttt{137.204.xx.xx} form
+            \item Docker \emph{usually} assign IPs to containers in from the \texttt{172.xx.xx.xx} range
+        \end{itemize}
     \end{itemize}
-	\end{itemize}
 
 \end{frame}
 
@@ -484,32 +486,32 @@
 \begin{frame}
 \frametitle{Configure Your Own Computer}
 
-	Some useful tutorials:
-	%
-	\begin{itemize}
+    Some useful tutorials:
+    %
+    \begin{itemize}
 
-		\item \href{https://docs.gradle.org/current/userguide/installation.html\#installing_manually}{How to install Gradle on Windows, Mac OS, or Linux}
+        \item \href{https://docs.gradle.org/current/userguide/installation.html\#installing_manually}{How to install Gradle on Windows, Mac OS, or Linux}
 
-		\item	 \href{https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html}{Hot to set the \texttt{JAVA\_HOME} environment variable on Windows}
-		%
-		\begin{itemize}
-			\item other environment variables can be set in a similar way
-		\end{itemize}
+        \item	 \href{https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html}{Hot to set the \texttt{JAVA\_HOME} environment variable on Windows}
+        %
+        \begin{itemize}
+            \item other environment variables can be set in a similar way
+        \end{itemize}
 
-		\item \href{https://www.java.com/en/download/help/path.xml}{How to edit the \texttt{PATH} environment variable on Windows or Mac OS}
-		%
-		\begin{itemize}
-			\item instructions for Mac OS are ok for Linux too
-		\end{itemize}
+        \item \href{https://www.java.com/en/download/help/path.xml}{How to edit the \texttt{PATH} environment variable on Windows or Mac OS}
+        %
+        \begin{itemize}
+            \item instructions for Mac OS are ok for Linux too
+        \end{itemize}
 
- 		\item \href{https://docs.microsoft.com/it-it/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v}{How to enable Hyper-V on Windows}
+         \item \href{https://docs.microsoft.com/it-it/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v}{How to enable Hyper-V on Windows}
 
-		\item \href{https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration}{How to set up Git properties}
-	\end{itemize}
+        \item \href{https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration}{How to set up Git properties}
+    \end{itemize}
 
-	\begin{block}{}
-		In case of troubles, you can post on the \href{https://virtuale.unibo.it/mod/forum/view.php?id=331530}{Students' Forum} \alert{describing your issues}, your computer's features, and the steps you already performed :)
-	\end{block}
+    \begin{block}{}
+        In case of troubles, you can post on the \href{https://virtuale.unibo.it/mod/forum/view.php?id=331530}{Students' Forum} \alert{describing your issues}, your computer's features, and the steps you already performed :)
+    \end{block}
 
 \end{frame}
 
@@ -517,19 +519,19 @@
 
 \begin{frame}\label{troubleshooting}
 \frametitle{Troubleshooting}
-	\begin{itemize}
-		\item in case your PC runs Windows 10 Home or some former version of Windows, you can freely and legally get a Windows 10 Pro license \& self-installing image since you are an UniBo student
-		%
-		\begin{itemize}
-			\item you must apply to \href{https://dreamspark.campusfc.unibo.it/}{UniBo's Microsoft Programme}
-			\item it may require a few days for your account to be activated
-		\end{itemize}
+    \begin{itemize}
+        \item in case your PC runs Windows 10 Home or some former version of Windows, you can freely and legally get a Windows 10 Pro license \& self-installing image since you are an UniBo student
+        %
+        \begin{itemize}
+            \item you must apply to \href{https://dreamspark.campusfc.unibo.it/}{UniBo's Microsoft Programme}
+            \item it may require a few days for your account to be activated
+        \end{itemize}
 
-		\vspace{.3cm}
+        \vspace{.3cm}
 
-		\item for other sorts of troubles, please create a post on the \href{https://virtuale.unibo.it/mod/forum/view.php?id=331530}{Students' Forum}
+        \item for other sorts of troubles, please create a post on the \href{https://virtuale.unibo.it/mod/forum/view.php?id=331530}{Students' Forum}
 
-	\end{itemize}
+    \end{itemize}
 \end{frame}
 
 \maketitle
