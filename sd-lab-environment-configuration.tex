@@ -74,14 +74,14 @@
     \item a correct configuration includes the following software runtimes:
     %
     \begin{itemize}
-        \item \href{https://www.oracle.com/java/technologies/downloads/}{Java Development Kit (JDK) $\geq 11$}
+        \item \href{https://www.oracle.com/java/technologies/downloads/}{Java Development Kit (JDK) $\geq 17$}
         \begin{itemize}
-            \item \alert{please avoid JDK versions $< 11$}
+            \item \alert{please avoid JDK versions $< 17$}
 %			\item \alert{notice that JDK versions $\geq 15$ are not compatible with Gradle $\leq 6.6.1$}
         \end{itemize}
-        \item \href{https://gradle.org/releases}{Gradle $\geq 7.0$}
-        \item \href{https://git-scm.com}{Git $\geq 2.25.0$}
-        \item \emph{(optional)} \href{https://www.docker.com/products/docker-desktop}{Docker Community Edition (CE) $\geq 20.0.0$}
+        \item \href{https://gradle.org/releases}{Gradle $\geq 8.0$}
+        \item \href{https://git-scm.com}{Git $\geq 2.40.0$}
+        \item \emph{(optional)} \href{https://www.docker.com/products/docker-desktop}{Docker Community Edition (CE) $\geq 23.0.0$}
     \end{itemize}
 
     \item ensure they are installed or install them if they are not
@@ -149,8 +149,8 @@
     \begin{itemize}
         \item[$>$] \texttt{echo \alert{\%}JAVA\_HOME\alert{\%} \& echo \alert{\%}GRADLE\_HOME\alert{\%}}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{C:$\backslash$Program Files$\backslash$Java$\backslash$jdk\_14.X\_Y} \hint{your paths may}
-            \item[] \texttt{C:$\backslash$Program Files$\backslash$Gradle$\backslash$gradle-6.X.Y} \hint{be different}
+            \item[$\rightarrow$] \texttt{C:$\backslash$Program Files$\backslash$Java$\backslash$jdk\_17.X\_Y} \hint{your paths may}
+            \item[] \texttt{C:$\backslash$Program Files$\backslash$Gradle$\backslash$gradle-8.X.Y} \hint{be different}
         \end{itemize}
     \end{itemize}
     %
@@ -159,8 +159,8 @@
     \begin{itemize}
         \item[\$] \texttt{echo \alert{\$}JAVA\_HOME ; echo \alert{\$}GRADLE\_HOME}
         \begin{itemize}
-            \item[$\rightarrow$] \texttt{/usr/lib/jvm/java-14.X.Y-openjdk-amd64/}\hint{your paths may}
-            \item[] \texttt{/opt/gradle/gradle-6.X.Y}\hint{be different}
+            \item[$\rightarrow$] \texttt{/usr/lib/jvm/java-17.X.Y-openjdk-amd64/}\hint{your paths may}
+            \item[] \texttt{/opt/gradle/gradle-8.X.Y}\hint{be different}
         \end{itemize}
     \end{itemize}
     %
@@ -526,7 +526,7 @@
 \begin{frame}\label{troubleshooting}
 \frametitle{Troubleshooting}
     \begin{itemize}
-        \item in case your PC runs Windows 10 Home or some former version of Windows, you can freely and legally get a Windows 10 Pro license \& self-installing image since you are an UniBo student
+        \item in case your PC runs Windows 11 Home or some former version of Windows, you can freely and legally get a Windows 11 license \& self-installing image since you are an UniBo student
         %
         \begin{itemize}
             \item you must apply to \href{https://dreamspark.campusfc.unibo.it/}{UniBo's Microsoft Programme}
